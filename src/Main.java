@@ -68,7 +68,7 @@ public class Main {
             throw new Exception();
 
         String RomanNums[] = {"I","II","III","IV","V","VI","VII","VIII","IX","X"};
-        String RomanDozen[] = {"X","XX","XXX","IL","L","LX","LXX","LXX","XC"};
+        String RomanDozen[] = {"X","XX","XXX","XL","L","LX","LXX","LXX","XC"};
 
         if(x==100)
             return "C";
@@ -76,8 +76,10 @@ public class Main {
             return "X";
         if(x<10){
             return RomanNums[x-1];
-        }else{
+        }else if(x%10!=0){
             return RomanDozen[x/10-1]+RomanNums[x%10-1];
+        }else{
+            return RomanDozen[x/10-1];
         }
     }
 
